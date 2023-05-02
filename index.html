@@ -2,36 +2,35 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0"> <!-- displays site properly based on user's device -->
-
-  <link rel="icon" type="image/png" sizes="32x32" href="./assets/images/favicon-32x32.png">
-  
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"> 
+  <link rel="icon" type="image/png" sizes="32x32" href="images/favicon-32x32.png">
+  <link rel="stylesheet" href="app.css">
   <title>Frontend Mentor | Age calculator app</title>
 
-  <!-- Feel free to remove these styles or customise in your own stylesheet 👍 -->
-  <style>
-    .attribution { font-size: 11px; text-align: center; }
-    .attribution a { color: hsl(228, 45%, 44%); }
-  </style>
 </head>
 <body>
+  <main class="container">
+    <form action="">
+      <div class="day">
+        <label for="day">Day</label>
+        <input type="text" name="day" id="day" placeholder="DD">
+      </div>
+      <div class="month">
+        <label for="month">Month</label>
+        <input type="text" name="month" id="month" placeholder="MM">
+      </div>
+      <div class="year">
+        <label for="year">Year</label>
+        <input type="text" name="year" id="year" placeholder="YY">
+      </div>
+      <img src="images/icon-arrow.svg" alt="arrow icon" type="submit" class="icon">
+    </form>
 
-  Day
-  DD
-
-  Month
-  MM
-
-  Year
-  YYYY
-
-  -- years
-  -- months
-  -- days
-  
-  <div class="attribution">
-    Challenge by <a href="https://www.frontendmentor.io?ref=challenge" target="_blank">Frontend Mentor</a>. 
-    Coded by <a href="#">Your Name Here</a>.
-  </div>
+    <section>
+      <h1><span class="h1">--</span> years</h1>
+      <h2><span class="h2">--</span> months</h2>
+      <h3><span class="h3">--</span> days</h3>
+    </section>
+  </main>
 </body>
 </html>

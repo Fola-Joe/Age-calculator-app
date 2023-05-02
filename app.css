@@ -1,0 +1,104 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;700;800&display=swap');
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed, 
+figure, figcaption, footer, header, hgroup, 
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: inherit;
+	vertical-align: baseline;
+}
+/* HTML5 display-role reset for older browsers */
+article, aside, details, figcaption, figure, 
+footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+body {
+	line-height: 1;
+}
+ol, ul {
+	list-style: none;
+}
+blockquote, q {
+	quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+
+
+html {box-sizing: border-box;}
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background-color: hsl(0, 0%, 94%);
+    font-family: 'Poppins', sans-serif;
+}
+main {
+    max-width: 360px;
+    background-color: hsl(0, 0%, 100%);
+    padding: 3rem 1.5rem 4rem 1.5rem;
+    border-radius: 1rem 1rem 4rem 1rem;
+}
+form {
+    position: relative;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    padding-bottom: 3rem;
+    margin-bottom: 5rem;
+    gap: 1rem;
+    border-bottom: 1px solid hsl(0, 0%, 86%);
+}
+.icon{position: absolute;}
+label {
+    text-transform: uppercase;
+    color: hsl(0, 1%, 44%);
+    font-size: 0.8rem;
+    font-weight: 700;
+    margin-bottom: 1rem;
+    letter-spacing: 0.2rem;
+}
+input {
+    outline: none;
+    font-family: 'Poppins', sans-serif;
+    font-size: 1.1rem;
+    font-weight: 800;
+    width: 4rem;
+    display: block;
+    padding: 0.75rem;
+    border-radius: 0.5rem;
+    border: 1px solid hsl(0, 0%, 86%);
+    margin-top: 0.25rem;
+}
+::placeholder{
+    font-family: 'Poppins', sans-serif;
+    font-weight: 800;
+    font-size: 1.1rem;
+}
+
+h1, h2, h3{
+    font-size: 3.25rem;
+    font-weight: 800;
+    font-style: italic;
+}
+span {color: hsl(259, 100%, 65%);}
