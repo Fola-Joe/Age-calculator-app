@@ -108,7 +108,7 @@ span {color: hsl(259, 100%, 65%);}
     position: absolute;
     left: 0;
     right: 0;
-    top: 5.75rem;
+    top: 6.75rem;
     margin-left: auto;
     margin-right: auto;
     transition: all 0.7s;
@@ -117,6 +117,13 @@ span {color: hsl(259, 100%, 65%);}
     cursor: pointer;
     background-color: hsl(0, 0%, 8%);
 }
+button {
+    border: none;
+    background-color: transparent;
+    padding: 0;
+}
+.error {border-color: hsl(0, 100%, 67%);}
+
 
 @media screen and (min-width: 820px) {
     main {
@@ -130,12 +137,12 @@ span {color: hsl(259, 100%, 65%);}
         gap: 2.5rem;
     }
     input {
-        width: 7.5rem;
-        padding: 1.25rem;
-        font-size: 1.5rem;
+        width: 8rem;
+        padding: 1.1rem;
+        font-size: 2rem;
     }
     label{font-size: 1.1rem;}
-    ::placeholder {font-size: 1.5rem;}
+    ::placeholder {font-size: 2rem;}
     h1, h2, h3 {font-size: 6rem;}
     .icon {
         width: 3.5rem;
