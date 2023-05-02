@@ -57,7 +57,7 @@ body {
 main {
     max-width: 360px;
     background-color: hsl(0, 0%, 100%);
-    padding: 3rem 1.5rem 4rem 1.5rem;
+    padding: 3rem 1.5rem 4rem;
     border-radius: 1rem 1rem 4rem 1rem;
 }
 form {
@@ -69,7 +69,6 @@ form {
     gap: 1rem;
     border-bottom: 1px solid hsl(0, 0%, 86%);
 }
-.icon{position: absolute;}
 label {
     text-transform: uppercase;
     color: hsl(0, 1%, 44%);
@@ -95,10 +94,56 @@ input {
     font-weight: 800;
     font-size: 1.1rem;
 }
-
 h1, h2, h3{
     font-size: 3.25rem;
     font-weight: 800;
     font-style: italic;
 }
 span {color: hsl(259, 100%, 65%);}
+.icon {
+    background-color: hsl(259, 100%, 65%);
+    width: 1.5rem;
+    padding: 1rem;
+    border-radius: 50%;
+    position: absolute;
+    left: 0;
+    right: 0;
+    top: 5.75rem;
+    margin-left: auto;
+    margin-right: auto;
+    transition: all 0.7s;
+}
+.icon:hover {
+    cursor: pointer;
+    background-color: hsl(0, 0%, 8%);
+}
+
+@media screen and (min-width: 820px) {
+    main {
+        max-width: 800px;
+        width: 100%;
+        border-radius: 1.5rem 1.5rem 10rem 1.5rem;
+        padding: 3rem;
+    }
+    form {
+        display: flex;
+        gap: 2.5rem;
+    }
+    input {
+        width: 7.5rem;
+        padding: 1.25rem;
+        font-size: 1.5rem;
+    }
+    label{font-size: 1.1rem;}
+    ::placeholder {font-size: 1.5rem;}
+    h1, h2, h3 {font-size: 6rem;}
+    .icon {
+        width: 3.5rem;
+        padding: 1.2rem;
+        top: 6.1rem;
+        right: 0;
+        margin-left: auto;
+        margin-right: 0;
+        left: 0;
+    }
+}
