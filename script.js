@@ -29,7 +29,21 @@ yearInput.addEventListener('input', (e) => {
 //Submission of input
 submitBtn.addEventListener('click', function(e){
     e.preventDefault();
-    // if (!dayInput){
-    //     dayInput.classList.add('error');
-    // }
+
+    const dayError = document.querySelector('.day-span');
+    const monthError = document.querySelector('.month-span');
+    const yearError = document.querySelector('.year-span');
+
+    if (!dayInput.value){
+        inputs[0].classList.add('error');
+        dayError.innerText = 'This field is required';
+    }
+    if (!monthInput.value){
+        inputs[1].classList.add('error');
+        monthError.innerText = 'This field is required';
+    }
+    if (!yearInput.value){
+        inputs[2].classList.add('error');
+        yearError.innerText = 'This field is required';
+    }
 })

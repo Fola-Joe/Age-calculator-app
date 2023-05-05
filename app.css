@@ -88,6 +88,7 @@ input {
     border-radius: 0.5rem;
     border: 1px solid hsl(0, 0%, 86%);
     margin-top: 0.25rem;
+    margin-bottom: 0.5rem;
 }
 ::placeholder{
     font-family: 'Poppins', sans-serif;
@@ -99,7 +100,7 @@ h1, h2, h3{
     font-weight: 800;
     font-style: italic;
 }
-span {color: hsl(259, 100%, 65%);}
+.h1, .h2, .h3 {color: hsl(259, 100%, 65%);}
 .icon {
     background-color: hsl(259, 100%, 65%);
     width: 1.5rem;
@@ -123,6 +124,11 @@ button {
     padding: 0;
 }
 .error {border-color: hsl(0, 100%, 67%);}
+div span {
+    color: hsl(0, 100%, 67%);
+    font-style: italic;
+    font-size: 0.85rem;
+}
 
 
 @media screen and (min-width: 820px) {
