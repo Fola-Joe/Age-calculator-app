@@ -34,16 +34,41 @@ submitBtn.addEventListener('click', function(e){
     const monthError = document.querySelector('.month-span');
     const yearError = document.querySelector('.year-span');
 
+    let dayNum = dayInput.value;
+    let monthNum = monthInput.value;
+    let yearNum = yearInput.value;
+
+    //conditions for empty input fields and wrong days, months and years
     if (!dayInput.value){
         inputs[0].classList.add('error');
         dayError.innerText = 'This field is required';
+    } else if (dayNum > 31){
+        inputs[0].classList.add('error');
+        dayError.innerText = 'Must be a valid day';
+    } else {
+        inputs[0].classList.remove('error');
+        dayError.innerText = '';
     }
+
     if (!monthInput.value){
         inputs[1].classList.add('error');
         monthError.innerText = 'This field is required';
+    } else if (monthNum > 12){
+        inputs[1].classList.add('error');
+        monthError.innerText = 'Must be a valid month';
+    } else {
+        inputs[1].classList.remove('error');
+        monthError.innerText = '';
     }
+
     if (!yearInput.value){
         inputs[2].classList.add('error');
         yearError.innerText = 'This field is required';
+    } else if (yearNum > 2022){
+        inputs[2].classList.add('error');
+        yearError.innerText = 'Must be in the past';
+    } else {
+        inputs[2].classList.remove('error');
+        yearError.innerText = '';
     }
 })
