@@ -60,7 +60,7 @@ main {
     padding: 3rem 1.5rem 4rem;
     border-radius: 1rem 1rem 4rem 1rem;
 }
-form {
+.information {
     position: relative;
     display: grid;
     grid-template-columns: 1fr 1fr 1fr;
@@ -132,7 +132,7 @@ button {
         border-radius: 1.5rem 1.5rem 10rem 1.5rem;
         padding: 3rem;
     }
-    form {
+    .information {
         display: flex;
         gap: 2.5rem;
     }
