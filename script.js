@@ -1,12 +1,17 @@
 const inputs = document.querySelectorAll('input');
 const submitBtn = document.querySelector('button');
-const submitIcon = document.querySelector('.icon');
+
+const label = document.querySelectorAll('label');
 
 const form = document.querySelector('form');
 
 const dayInput = document.querySelector('#day');
 const monthInput = document.querySelector('#month');
 const yearInput = document.querySelector('#year');
+
+const dayOutput = document.querySelector('.h1');
+const monthOutput = document.querySelector('.h2');
+const yearOutput = document.querySelector('.h3');
 
 
 //Numbers input only
@@ -42,33 +47,44 @@ submitBtn.addEventListener('click', function(e){
     if (!dayInput.value){
         inputs[0].classList.add('error');
         dayError.innerText = 'This field is required';
+        label[0].style.color = 'hsl(0, 100%, 67%)';
     } else if (dayNum > 31){
         inputs[0].classList.add('error');
         dayError.innerText = 'Must be a valid day';
+        label[0].style.color = 'hsl(0, 100%, 67%)';
     } else {
         inputs[0].classList.remove('error');
         dayError.innerText = '';
+        label[0].style.color = '';
     }
 
     if (!monthInput.value){
         inputs[1].classList.add('error');
         monthError.innerText = 'This field is required';
+        label[1].style.color = 'hsl(0, 100%, 67%)';
     } else if (monthNum > 12){
         inputs[1].classList.add('error');
         monthError.innerText = 'Must be a valid month';
+        label[1].style.color = 'hsl(0, 100%, 67%)';
     } else {
         inputs[1].classList.remove('error');
         monthError.innerText = '';
+        label[1].style.color = '';
     }
 
     if (!yearInput.value){
         inputs[2].classList.add('error');
         yearError.innerText = 'This field is required';
+        label[2].style.color = 'hsl(0, 100%, 67%)';
     } else if (yearNum > 2022){
         inputs[2].classList.add('error');
         yearError.innerText = 'Must be in the past';
+        label[2].style.color = 'hsl(0, 100%, 67%)';
     } else {
         inputs[2].classList.remove('error');
         yearError.innerText = '';
+        label[2].style.color = '';
     }
+
+    
 })

@@ -90,6 +90,9 @@ input {
     margin-top: 0.25rem;
     margin-bottom: 0.5rem;
 }
+input:focus {
+    border: 1px solid hsl(259, 100%, 65%);
+    caret-color: hsl(259, 100%, 65%);}
 ::placeholder{
     font-family: 'Poppins', sans-serif;
     font-weight: 800;
