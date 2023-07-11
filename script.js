@@ -1,8 +1,6 @@
 const inputs = document.querySelectorAll('input');
 const submitBtn = document.querySelector('button');
-
 const label = document.querySelectorAll('label');
-
 const form = document.querySelector('form');
 
 const dayInput = document.querySelector('#day');
@@ -31,31 +29,59 @@ yearInput.addEventListener('input', (e) => {
     e.target.value = numbersOnly;
 });
 
+function dateCalculator() {
+    const date = new Date();
+    const currentDay = date.getDate();
+    const currentMonth = date.getMonth() + 1;
+    const currentYear = date.getFullYear();
 
-form.addEventListener('submit', function dateValidation(e) {
+    let years = currentYear - yearInput.value;
+    let months = currentMonth - monthInput.value;
+    let days = currentDay - dayInput.value;
+
+  // Adjust the age if the current month is before the birth month
+  if (currentMonth < monthInput.value) {
+    years--;
+    months = 12 - (monthInput.value - currentMonth);
+  }
+  // Adjust the age if the current month is the birth month but the current day is before the birth day
+  else if (currentMonth === monthInput.value && currentDay < dayInput.value) {
+    years--;
+    months = 11;
+    days = currentDay + (getDaysInMonth(monthInput.value - 1, currentYear) - dayInput.value);
+  }
+  // Adjust the age if the current day is before the birth day
+  else if (currentDay < dayInput.value) {
+    months--;
+    days = currentDay + (getDaysInMonth(monthInput.value - 1, currentYear) - dayInput.value);
+    }
+    
+    dayOutput.innerText = days;
+    monthOutput.innerText = months;
+    yearOutput.innerText = years;
+}
+
+
+form.addEventListener('submit', function(e) {
     e.preventDefault();
     const dayError = document.querySelector('.day-span');
     const monthError = document.querySelector('.month-span');
     const yearError = document.querySelector('.year-span');
 
-    // let validation = true;
     //conditions for empty input fields and wrong days, months and years
     let dayNum = dayInput.value;
     if (!dayInput.value){
         inputs[0].classList.add('error');
         dayError.innerText = 'This field is required';
         label[0].style.color = 'hsl(0, 100%, 67%)';
-        // validation = false;
     } else if (dayNum > 31){
         inputs[0].classList.add('error');
         dayError.innerText = 'Must be a valid day';
         label[0].style.color = 'hsl(0, 100%, 67%)';
-        // validation = false;
     } else {
         inputs[0].classList.remove('error');
         dayError.innerText = '';
         label[0].style.color = '';
-        // validation = true;
     }
 
     let monthNum = monthInput.value;
@@ -63,17 +89,14 @@ form.addEventListener('submit', function dateValidation(e) {
         inputs[1].classList.add('error');
         monthError.innerText = 'This field is required';
         label[1].style.color = 'hsl(0, 100%, 67%)';
-        // validation = false;
     } else if (monthNum > 12){
         inputs[1].classList.add('error');
         monthError.innerText = 'Must be a valid month';
         label[1].style.color = 'hsl(0, 100%, 67%)';
-        // validation = false;
     } else {
         inputs[1].classList.remove('error');
         monthError.innerText = '';
         label[1].style.color = '';
-        // validation = true;
     }
 
     const currentDate = new Date();
@@ -83,90 +106,15 @@ form.addEventListener('submit', function dateValidation(e) {
         inputs[2].classList.add('error');
         yearError.innerText = 'This field is required';
         label[2].style.color = 'hsl(0, 100%, 67%)';
-        // validation = false;
     } else if (yearNum >= currentYear){
         inputs[2].classList.add('error');
         yearError.innerText = 'Must be in the past';
         label[2].style.color = 'hsl(0, 100%, 67%)';
-        // validation = false;
     } else {
         inputs[2].classList.remove('error');
         yearError.innerText = '';
         label[2].style.color = '';
-        // validation = true;
     }
-    // return validation;
 
-// const date = new Date();
-// const day = currentDate.getDate();
-// const month = currentDate.getMonth() + 1;
-// const year = currentDate.getFullYear();
-
-// const months = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31];
-
-    function submission() {
-        const day = currentDate.getDate();
-        const month = currentDate.getMonth() + 1;
-        const year = currentDate.getFullYear();
-
-        const months = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31];
-   
-        if (dateValidation()) {
-            if (dayInput.value > day){
-                day = day + months[month - 1];
-            } else if (monthInput.value > month) {
-                month = month + 12;
-                year = year - 1;
-
-                dayOutput.innerText = dayOtp;
-                monthOutput.innerText = monthOtp;
-                yearOutput.innerText = yearOtp;
-            }
-        }
-    
-
-    const dayOtp = day - dayInput.value;
-    const monthOtp = month - monthInput.value;
-    const yearOtp = year - yearInput.value;
-
-    // dayOutput.innerText = dayOtp;
-    // monthOutput.innerText = monthOtp;
-    // yearOutput.innerText = yearOtp;
-}
-submission();
+    dateCalculator();
 })
-
-// const date = new Date();
-// const day = date.getDate();
-// const month = date.getMonth() + 1;
-// const year = date.getFullYear();
-
-// const months = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31];
-
-// function submission(e) {
-//     e.preventDefault();
-//     if (dateValidation()) {
-//         if (dayInput.value > day){
-//             day = day + months[month - 1];
-//         }
-//         if (monthInput.value > month) {
-//             month = month + 12;
-//             year = year - 1;
-//         }
-//     }
-    
-
-//     const dayOtp = day - dayInput.value;
-//     const monthOtp = month - monthInput.value;
-//     const yearOtp = year - yearInput.value;
-
-//     dayOutput.innerHTML = dayOtp;
-//     monthOutput.innerHTML = monthOtp;
-//     yearOutput.innerHTML = yearOtp;
-// }
-
-
-// form.addEventListener('submit', function (){
-//     dateValidation();
-//     submission();
-// });
