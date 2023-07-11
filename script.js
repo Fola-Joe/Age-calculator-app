@@ -29,6 +29,11 @@ yearInput.addEventListener('input', (e) => {
     e.target.value = numbersOnly;
 });
 
+
+function getDaysInMonth(year, month){
+    return new Date(year, month, 0).getDate();
+}
+
 function dateCalculator() {
     const date = new Date();
     const currentDay = date.getDate();
@@ -39,23 +44,25 @@ function dateCalculator() {
     let months = currentMonth - monthInput.value;
     let days = currentDay - dayInput.value;
 
-  // Adjust the age if the current month is before the birth month
-  if (currentMonth < monthInput.value) {
-    years--;
-    months = 12 - (monthInput.value - currentMonth);
-  }
-  // Adjust the age if the current month is the birth month but the current day is before the birth day
-  else if (currentMonth === monthInput.value && currentDay < dayInput.value) {
-    years--;
-    months = 11;
-    days = currentDay + (getDaysInMonth(monthInput.value - 1, currentYear) - dayInput.value);
-  }
-  // Adjust the age if the current day is before the birth day
-  else if (currentDay < dayInput.value) {
-    months--;
-    days = currentDay + (getDaysInMonth(monthInput.value - 1, currentYear) - dayInput.value);
+    years = currentYear - yearInput.value;
+    if(currentMonth >= monthInput.value){
+        months = currentMonth - monthInput.value;
+    } else {
+        years--;
+        months = (currentMonth + 12) - monthInput.value;
     }
-    
+    if (currentDay >= dayInput.value){
+        days = currentDay - dayInput.value;
+    } else {
+        months--;
+        days = getDaysInMonth(yearInput.value, monthInput.value) + currentDay - dayInput.value;
+    }
+    if (months < 0){
+        months = 11;
+        years--;
+    }
+
+
     dayOutput.innerText = days;
     monthOutput.innerText = months;
     yearOutput.innerText = years;
