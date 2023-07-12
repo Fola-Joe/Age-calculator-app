@@ -104,6 +104,17 @@ h1, h2, h3{
     font-style: italic;
 }
 .h1, .h2, .h3 {color: hsl(259, 100%, 65%);}
+.animate {
+    position: relative;
+    animation-name: example;
+    animation-duration: 5s;
+    animation-delay: 1s;
+}
+@keyframes example {
+    0%   {color:hsl(259, 100%, 65%); left:0; top:0;}
+    50%  {color:hsla(259, 100%, 65%, 0.7); left:1rem; top:0;}
+    100% {color:hsl(259, 100%, 65%); left:0; top:0;}
+}
 .icon {
     background-color: hsl(259, 100%, 65%);
     width: 1.5rem;

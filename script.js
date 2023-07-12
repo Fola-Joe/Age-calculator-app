@@ -69,16 +69,19 @@ function dateCalculator() {
         dayOutput.innerText = '--';
     } else {
         dayOutput.innerText = days;
+        dayOutput.classList.add('animate');
     }
     if (!monthInput.value) {
         monthOutput.innerText = '--';
     } else {
         monthOutput.innerText = months;
+        monthOutput.classList.add('animate');
     }
     if (!yearInput.value){
         yearOutput.innerText = '--';
     } else {
         yearOutput.innerText = years;
+        yearOutput.classList.add('animate');
     }
 }
 
