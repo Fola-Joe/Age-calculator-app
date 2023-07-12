@@ -30,6 +30,8 @@ yearInput.addEventListener('input', (e) => {
 });
 
 
+
+
 function getDaysInMonth(year, month){
     return new Date(year, month + 1, 0).getDate();
 }
@@ -62,9 +64,22 @@ function dateCalculator() {
         years--;
     }
 
-    dayOutput.innerText = days;
-    monthOutput.innerText = months;
-    yearOutput.innerText = years;
+    //ensuring no display if input fields are empty
+    if(!dayInput.value) {
+        dayOutput.innerText = '--';
+    } else {
+        dayOutput.innerText = days;
+    }
+    if (!monthInput.value) {
+        monthOutput.innerText = '--';
+    } else {
+        monthOutput.innerText = months;
+    }
+    if (!yearInput.value){
+        yearOutput.innerText = '--';
+    } else {
+        yearOutput.innerText = years;
+    }
 }
 
 
