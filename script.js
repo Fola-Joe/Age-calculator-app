@@ -92,13 +92,35 @@ form.addEventListener('submit', function(e) {
     const monthError = document.querySelector('.month-span');
     const yearError = document.querySelector('.year-span');
 
+    // Check if the year is a leap year
+    let isLeapYear = (year % 4 === 0);
+
+    let maxDaysInMonth = [
+        31, // January
+        isLeapYear ? 29 : 28, // February
+        31, // March
+        30, // April
+        31, // May
+        30, // June
+        31, // July
+        31, // August
+        30, // September
+        31, // October
+        30, // November
+        31  // December
+    ];
+
     //conditions for empty input fields and wrong days, months and years
     let dayNum = dayInput.value;
-    if (!dayInput.value){
+    if (!dayNum){
         inputs[0].classList.add('error');
         dayError.innerText = 'This field is required';
         label[0].style.color = 'hsl(0, 100%, 67%)';
-    } else if (dayNum > 31){
+    // } else if (dayNum > 31){
+    //     inputs[0].classList.add('error');
+    //     dayError.innerText = 'Must be a valid day';
+    //     label[0].style.color = 'hsl(0, 100%, 67%)';
+    } else if (dayInput.value < 1 || dayInput.value > maxDaysInMonth[monthInput.value - 1]) {
         inputs[0].classList.add('error');
         dayError.innerText = 'Must be a valid day';
         label[0].style.color = 'hsl(0, 100%, 67%)';
@@ -113,7 +135,7 @@ form.addEventListener('submit', function(e) {
         inputs[1].classList.add('error');
         monthError.innerText = 'This field is required';
         label[1].style.color = 'hsl(0, 100%, 67%)';
-    } else if (monthNum > 12){
+    } else if (monthNum < 1 || monthNum > 12){
         inputs[1].classList.add('error');
         monthError.innerText = 'Must be a valid month';
         label[1].style.color = 'hsl(0, 100%, 67%)';
@@ -140,5 +162,15 @@ form.addEventListener('submit', function(e) {
         label[2].style.color = '';
     }
 
-    dateCalculator();
+    // let birthday = new Date(yearInput.value, monthInput.value - 1, dayInput.value);
+
+    // if (
+    //     birthday.getFullYear() === yearInput.value &&
+    //     birthday.getMonth() === monthInput.value - 1 &&
+    //     birthday.getDate() === dayInput.value
+    //   ){
+        dateCalculator();
+    // }
+
+    // dateCalculator();
 })
