@@ -30,8 +30,6 @@ yearInput.addEventListener('input', (e) => {
 });
 
 
-
-
 function getDaysInMonth(year, month){
     return new Date(year, month + 1, 0).getDate();
 }
@@ -67,7 +65,8 @@ function dateCalculator() {
     //ensuring no display if input fields are empty
     if(!dayInput.value) {
         dayOutput.innerText = '--';
-    } else {
+    }
+    else {
         dayOutput.innerText = days;
         dayOutput.classList.add('animate');
     }
@@ -83,6 +82,13 @@ function dateCalculator() {
         yearOutput.innerText = years;
         yearOutput.classList.add('animate');
     }
+
+    //no display if error is being displayed
+    if (label[0].style.color || label[1].style.color || label[2].style.color === 'hsl(0, 100%, 67%)'){
+        dayOutput.innerText = '--';
+        monthOutput.innerText = '--';
+        yearOutput.innerText = '--';
+    }
 }
 
 
@@ -93,7 +99,7 @@ form.addEventListener('submit', function(e) {
     const yearError = document.querySelector('.year-span');
 
     // Check if the year is a leap year
-    let isLeapYear = (year % 4 === 0);
+    let isLeapYear = (yearInput.value % 4 === 0);
 
     let maxDaysInMonth = [
         31, // January
@@ -116,10 +122,6 @@ form.addEventListener('submit', function(e) {
         inputs[0].classList.add('error');
         dayError.innerText = 'This field is required';
         label[0].style.color = 'hsl(0, 100%, 67%)';
-    // } else if (dayNum > 31){
-    //     inputs[0].classList.add('error');
-    //     dayError.innerText = 'Must be a valid day';
-    //     label[0].style.color = 'hsl(0, 100%, 67%)';
     } else if (dayInput.value < 1 || dayInput.value > maxDaysInMonth[monthInput.value - 1]) {
         inputs[0].classList.add('error');
         dayError.innerText = 'Must be a valid day';
@@ -156,21 +158,15 @@ form.addEventListener('submit', function(e) {
         inputs[2].classList.add('error');
         yearError.innerText = 'Must be in the past';
         label[2].style.color = 'hsl(0, 100%, 67%)';
+    } else if (yearNum.length < 4){
+        inputs[2].classList.add('error');
+        yearError.innerText = 'Input 4 digits';
+        label[2].style.color = 'hsl(0, 100%, 67%)';
     } else {
         inputs[2].classList.remove('error');
         yearError.innerText = '';
         label[2].style.color = '';
     }
 
-    // let birthday = new Date(yearInput.value, monthInput.value - 1, dayInput.value);
-
-    // if (
-    //     birthday.getFullYear() === yearInput.value &&
-    //     birthday.getMonth() === monthInput.value - 1 &&
-    //     birthday.getDate() === dayInput.value
-    //   ){
-        dateCalculator();
-    // }
-
-    // dateCalculator();
+    dateCalculator();
 })

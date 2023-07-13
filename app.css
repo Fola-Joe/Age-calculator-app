@@ -107,7 +107,7 @@ h1, h2, h3{
 .animate {
     position: relative;
     animation-name: example;
-    animation-duration: 5s;
+    animation-duration: 3s;
     animation-delay: 1s;
 }
 @keyframes example {
